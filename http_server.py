@@ -3,11 +3,13 @@
 import socket
 from time import sleep
 
+port = 5000
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # IPv4, TCP
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 while True:
     try:
-        server.bind(('0.0.0.0', 5000))
+        server.bind(('0.0.0.0', port))
         break
     except OSError:
         print('Address already in use')
